@@ -1,7 +1,9 @@
 import express from "express";
 import {crud_estudiantes} from "./controlador/crud_estudiantes.js";
-
+import {rutas} from "./controlador/rutasController.js";
 const app_e = express();
+app_e.use(express.urlencoded({extended:false}));
+app_e.use(express.json());
 app_e.use(express.static('./controlador'));
 app_e.use(express.static('./vista'));
 app_e.use(express.static('./modelo'));
@@ -13,3 +15,5 @@ app_e.listen('5000',function(){
 })
 
 app_e.get('/', crud_estudiantes.leer)
+app_e.get('/Acerca_de',rutas.acercaDe)
+app_e.post('/crud_estudiantes', crud_estudiantes.crud)
