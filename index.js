@@ -4,6 +4,7 @@ import {rutas} from "./controlador/rutasController.js";
 const app_e = express();
 app_e.use(express.urlencoded({extended:false}));
 app_e.use(express.json());
+app_e.use(express.static('public'));
 app_e.use(express.static('./controlador'));
 app_e.use(express.static('./vista'));
 app_e.use(express.static('./modelo'));
